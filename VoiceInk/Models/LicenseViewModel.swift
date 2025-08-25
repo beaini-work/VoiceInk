@@ -33,6 +33,12 @@ class LicenseViewModel: ObservableObject {
     }
     
     private func loadLicenseState() {
+        // MODIFIED: Force licensed state - bypass all license checks
+        licenseState = .licensed
+        return
+        
+        // ORIGINAL CODE BELOW - COMMENTED OUT FOR BYPASS
+        /*
         // Check for existing license key
         if let licenseKey = userDefaults.licenseKey {
             self.licenseKey = licenseKey
@@ -67,6 +73,7 @@ class LicenseViewModel: ObservableObject {
             // No trial has been started yet - start it now
             startTrial()
         }
+        */
     }
     
     var canUseApp: Bool {
